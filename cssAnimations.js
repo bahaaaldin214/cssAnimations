@@ -6,10 +6,10 @@ class cssFunction {
         this.time = time;
     }
     run(element, then, thenArgs) {
-        let length = (Array.isNodeList(element) || Array.isNodeList(element)) ? Object.keys(element).length : 1;
+        let length = (Array.isNodeList(element) || Array.isArray(element)) ? Object.keys(element).length : 1;
         if (this.toChanges.setUp !== undefined) {
             for (let i = 0; i < length; i++) {
-                let change = (Array.isNodeList(element) || Array.isNodeList(element)) ? element[i] : element;
+                let change = (Array.isNodeList(element) || Array.isArray(element)) ? element[i] : element;
                 for (let j = 0; j < this.toChanges.setUp.length; j++) {
                     change.style[this.toChanges.setUp[j]] = eval(this.changes.setUp[j]);
                 }
@@ -20,7 +20,7 @@ class cssFunction {
             if (!start) start = timeStamp;
             let progress = timeStamp - start;
             for (let i = 0; i < length; i++) {
-                let change = (Array.isNodeList(element) || Array.isNodeList(element)) ? element[i] : element;
+                let change = (Array.isNodeList(element) || Array.isArray(element)) ? element[i] : element;
                 change.style[this.toChanges.animate] = eval(this.changes.animate);
             }
             if (progress < this.time) {
