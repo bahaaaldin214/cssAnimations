@@ -45,18 +45,18 @@ css.fadeIn.run([$("#button1"), $("#button2")), $("#button3")]);
 
 **A nodeList:**
 ```js
-css.fadeIn.run($All("button"));
+css.fadeIn.run($A("button"));
 ```
 
 You can also have css animations fire right after the first animation is finished.
 
 ```js
-css.fadeIn.run($All("button"), css.fadeOut, $("#button2));
+css.fadeIn.run($A("button"), css.fadeOut, $("#button2));
 ```
 
 **List of functions**
 ```js
-css.fadeIn.run($All("button"), [css.fadeOut, $("#button2"), css.bounceDownUp, $All("canvas")]);
+css.fadeIn.run($A("button"), [css.fadeOut, $("#button2"), css.bounceDownUp, $A("canvas")]);
 ```
 
 If you come across any bugs, please file an issue!
