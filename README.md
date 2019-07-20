@@ -14,12 +14,12 @@ css.fadeIn = new cssFunction({
         setup and end need to be an array*/
         animate: "opacity", /*Animate is required, transform is gonna be changed every frame.
         Animate only takes one parameter since I don't think you'll ever need to animate more than one thing */
-        end: "display" /*you can set values after the animation is over. For example,
+        end: ["display"] /*you can set values after the animation is over. For example,
         in a fadeOut function you wil need to set display to none after */
     }, {
-        setUp: ["'block'"], /* here you set the the values, everything needs to be in a string, strings have to be in strings */
-        animate: "progress/300" /* progress is how many frames have passed since the start */
-        end: "'block'" /*every thing you decalre in the first object needs to be declared in here as well"
+        setUp: [() => 'block'], /* here you set the the values, you do that with callback functions */
+        animate: (progress) => progress/300 /* progress is how many frames have passed since the start */
+        end: [() => 'block'] /*every thing you decalre in the first object needs to be declared in here as well"
     },
     300 //here you set how long the animation lasts
 );
@@ -28,16 +28,13 @@ css.fadeIn = new cssFunction({
 
 You can use the function is a few ways, the parameters are: 1: element to change, or an array of elements.
 
+**First some shortCuts to make things easier 
+```js
+const $ = (arg) => arg[0] == ("#" || ".") ? document.querySelector(arg) : document.querySelectorAll(arg);
+```
 **One element:**
 
 ```js
-function $(arg) {
-  return document.querySelector(arg);
-}
-
-function $All(arg){
-  return document.querySelectorAll(arg);
-}
 
 css.fadeIn.run($("#button1"));
 ```
