@@ -26,7 +26,7 @@ css.fadeIn = new cssFunction({
 ```
 <h1>Using the functions</h1>
 
-You can use the function is a few ways, the parameters are: 1: element to change, or an array of elements.
+You can use the function is a few ways, like the following:
 
 **First some shortcuts to make things easier**
 ```js
