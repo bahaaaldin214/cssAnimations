@@ -28,7 +28,7 @@ css.fadeIn = new cssFunction({
 
 You can use the function is a few ways, the parameters are: 1: element to change, or an array of elements.
 
-**First some shortCuts to make things easier 
+**First some shorcCuts to make things easier**
 ```js
 const $ = (arg) => arg[0] == ("#" || ".") ? document.querySelector(arg) : document.querySelectorAll(arg);
 ```
