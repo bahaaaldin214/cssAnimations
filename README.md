@@ -1,4 +1,4 @@
-# Bahaamation
+# CssAnimations
 A very simple and easy to use css animation library 
 
 <h1> Making functions </h1>
