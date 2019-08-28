@@ -1,4 +1,4 @@
-isNodeList = (nodes) =>  typeof nodes === 'object' && /^\[object (HTMLCollection|NodeList|Object)\]$/.test(Object.prototype.toString.call(nodes)) && (typeof nodes.length ==='number') && (nodes.length === 0 || (typeof nodes[0] === "object" && nodes[0].nodeType > 0));
+const isNodeList = (nodes) =>  typeof nodes === 'object' && /^\[object (HTMLCollection|NodeList|Object)\]$/.test(Object.prototype.toString.call(nodes)) && (typeof nodes.length ==='number') && (nodes.length === 0 || (typeof nodes[0] === "object" && nodes[0].nodeType > 0));
 const css = {};
 class cssFunction {
     constructor(toChanges, changes, time) {
