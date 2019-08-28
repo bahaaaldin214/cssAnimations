@@ -1,3 +1,4 @@
+isNodeList = (nodes) =>  typeof nodes === 'object' && /^\[object (HTMLCollection|NodeList|Object)\]$/.test(Object.prototype.toString.call(nodes)) && (typeof nodes.length ==='number') && (nodes.length === 0 || (typeof nodes[0] === "object" && nodes[0].nodeType > 0));
 const css = {};
 class cssFunction {
     constructor(toChanges, changes, time) {
@@ -6,10 +7,10 @@ class cssFunction {
         this.time = time;
     }
     run(element, then, thenArgs) {
-        let length = (Array.isNodeList(element) || Array.isArray(element)) ? Object.keys(element).length : 1;
+        let length = (isNodeList(element) || Array.isArray(element)) ? Object.keys(element).length : 1;
         if (this.toChanges.setUp !== undefined) {
             for (let i = 0; i < length; i++) {
-                let change = (Array.isNodeList(element) || Array.isArray(element)) ? element[i] : element;
+                let change = (isNodeList(element) || Array.isArray(element)) ? element[i] : element;
                 for (let j = 0; j < this.toChanges.setUp.length; j++) {
                     change.style[this.toChanges.setUp[j]] = this.changes.setUp[j](change);
                 }
@@ -20,7 +21,7 @@ class cssFunction {
             if (!start) start = timeStamp;
             let progress = timeStamp - start;
             for (let i = 0; i < length; i++) {
-                let change = (Array.isNodeList(element) || Array.isArray(element)) ? element[i] : element;
+                let change = (isNodeList(element) || Array.isArray(element)) ? element[i] : element;
                 change.style[this.toChanges.animate] = this.changes.animate(progress, change);
             }
             if (progress < this.time) {
@@ -29,7 +30,7 @@ class cssFunction {
                 if (this.toChanges.end !== undefined) {
                     {
                         for (let i = 0; i < length; i++) {
-                            let change = (Array.isNodeList(element) || Array.isArray(element)) ? element[i] : element;
+                            let change = (isNodeList(element) || Array.isArray(element)) ? element[i] : element;
                             for (let j = 0; j < this.toChanges.end.length; j++) {
                                 change.style[this.toChanges.end[j]] = this.changes.end[j](progress, change);
                             }
